@@ -19,9 +19,10 @@ class TaskController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function assign_task($id)
     {
-        //
+        $task = Task::where('id',$id)->first();
+        return view('dashboard.task.assign',compact('task'));
     }
 
     /**
@@ -37,7 +38,7 @@ class TaskController extends Controller
      */
     public function show(Task $task)
     {
-        //
+        return view('dashboard.task.inventory',compact('task'));
     }
 
     /**
@@ -45,7 +46,7 @@ class TaskController extends Controller
      */
     public function edit(Task $task)
     {
-        //
+        return view('dashboard.task.edit',compact('task'));
     }
 
     /**

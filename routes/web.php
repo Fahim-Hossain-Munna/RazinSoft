@@ -16,6 +16,7 @@ Route::get('/', function () {
 Route::prefix('taskwithrazin')->middleware(['auth', 'verified'])->group(function () {
     Route::get('/dashboard',[HomeController::class,'index'])->name('dashboard');
     Route::resource('/task',TaskController::class);
+    Route::get('/task/assign/{id}',[TaskController::class,'assign_task'])->name('task.assign');
 });
 
 

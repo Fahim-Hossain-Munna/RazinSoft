@@ -11,7 +11,6 @@ class Task extends Component
     public $description;
     public $assign_date;
     public $expire_date;
-    public $hi;
 
     // for clear all field
     public function clearForm(){
@@ -59,22 +58,6 @@ class Task extends Component
 
         session()->flash('task_upload', 'Task successfully uploaded.');
         $this->clearForm();
-        return back();
-     }
-
-
-     public function loadTask($id){
-        $task = ModelsTask::find($id);
-        $this->title = $task->title;
-        $this->description = $task->description;
-        $this->assign_date = $task->assign_date;
-        $this->expire_date = $task->expire_date;
-
-        $this->dispatch('openModal', $task->id);
-     }
-
-     public function taskedit(){
-
      }
 
 
