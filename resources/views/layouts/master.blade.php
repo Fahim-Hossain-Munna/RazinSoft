@@ -1,21 +1,3 @@
-{{-- <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<body>
-    <form action="{{ route('logout') }}" method="POST">
-        @csrf
-        <button type="submit">log</button>
-    </form>
-</body>
-</html> --}}
-
-
-
 <!DOCTYPE html>
 <html lang="en" data-bs-theme="light" data-menu-color="brand" data-topbar-color="light">
 <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
@@ -35,6 +17,7 @@
     <link href="{{ asset('dashboard') }}/assets/css/style.min.css" rel="stylesheet" type="text/css">
     <link href="{{ asset('dashboard') }}/assets/css/icons.min.css" rel="stylesheet" type="text/css">
     <script src="{{ asset('dashboard') }}/assets/js/config.js"></script>
+    @livewireStyles
 </head>
 
 <body>
@@ -226,6 +209,8 @@
     <!-- Dashboard init-->
     <script src="{{ asset('dashboard') }}/assets/js/pages/dashboard.js"></script>
 
+
+    @livewireScripts
 </body>
 
 
