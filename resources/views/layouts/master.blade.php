@@ -64,14 +64,35 @@
                     <li class="menu-item">
                         <a href="#menuExpages" data-bs-toggle="collapse" class="menu-link waves-effect waves-light">
                             <span class="menu-icon"><i class="bx bx-file"></i></span>
-                            <span class="menu-text"> Task Pages </span>
+                            <span class="menu-text"> Task & Role</span>
                             <span class="menu-arrow"></span>
                         </a>
                         <div class="collapse" id="menuExpages">
                             <ul class="sub-menu">
                                 <li class="menu-item">
                                     <a class='menu-link' href='{{ route('task.index') }}'>
-                                        <span class="menu-text">Show & Create</span>
+                                        <span class="menu-text">Tasks</span>
+                                    </a>
+                                    @can('admin')
+                                    <a class='menu-link' href='{{ route('role.assign') }}'>
+                                        <span class="menu-text">Role</span>
+                                    </a>
+                                    @endcan
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="menu-item">
+                        <a href="#mytask" data-bs-toggle="collapse" class="menu-link waves-effect waves-light">
+                            <span class="menu-icon"><i class="bx bx-file"></i></span>
+                            <span class="menu-text">My Tasks</span>
+                            <span class="menu-arrow"></span>
+                        </a>
+                        <div class="collapse" id="mytask">
+                            <ul class="sub-menu">
+                                <li class="menu-item">
+                                    <a class='menu-link' href='{{ route('my.task.index') }}'>
+                                        <span class="menu-text">Tasks</span>
                                     </a>
                                 </li>
                             </ul>

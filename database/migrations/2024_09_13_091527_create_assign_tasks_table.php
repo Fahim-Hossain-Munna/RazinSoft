@@ -16,6 +16,7 @@ return new class extends Migration
             $table->integer('task_id');
             $table->integer('user_id');
             $table->string('assign_date');
+            $table->enum('status',['pending','complete'])->default('pending');
             $table->timestamps();
         });
     }
