@@ -80,49 +80,14 @@
                     <li class="menu-item">
                         <a href="#menuExpages" data-bs-toggle="collapse" class="menu-link waves-effect waves-light">
                             <span class="menu-icon"><i class="bx bx-file"></i></span>
-                            <span class="menu-text"> Extra Pages </span>
+                            <span class="menu-text"> Task Pages </span>
                             <span class="menu-arrow"></span>
                         </a>
                         <div class="collapse" id="menuExpages">
                             <ul class="sub-menu">
                                 <li class="menu-item">
-                                    <a class='menu-link' href='pages-starter.html'>
-                                        <span class="menu-text">Starter</span>
-                                    </a>
-                                </li>
-                                <li class="menu-item">
-                                    <a class='menu-link' href='pages-invoice.html'>
-                                        <span class="menu-text">Invoice</span>
-                                    </a>
-                                </li>
-                                <li class="menu-item">
-                                    <a class='menu-link' href='pages-login.html'>
-                                        <span class="menu-text">Log In</span>
-                                    </a>
-                                </li>
-                                <li class="menu-item">
-                                    <a class='menu-link' href='pages-register.html'>
-                                        <span class="menu-text">Register</span>
-                                    </a>
-                                </li>
-                                <li class="menu-item">
-                                    <a class='menu-link' href='pages-recoverpw.html'>
-                                        <span class="menu-text">Recover Password</span>
-                                    </a>
-                                </li>
-                                <li class="menu-item">
-                                    <a class='menu-link' href='pages-lock-screen.html'>
-                                        <span class="menu-text">Lock Screen</span>
-                                    </a>
-                                </li>
-                                <li class="menu-item">
-                                    <a class='menu-link' href='pages-404.html'>
-                                        <span class="menu-text">Error 404</span>
-                                    </a>
-                                </li>
-                                <li class="menu-item">
-                                    <a class='menu-link' href='pages-500.html'>
-                                        <span class="menu-text">Error 500</span>
+                                    <a class='menu-link' href='{{ route('task.index') }}'>
+                                        <span class="menu-text">Show & Create</span>
                                     </a>
                                 </li>
                             </ul>
@@ -211,10 +176,6 @@
 
                 <!-- Start Content-->
                 <div class="container-fluid">
-
-                    <!-- start page title -->
-                    <x-header-title title="Dashboard"></x-header-title>
-                    <!-- end page title -->
 
                     @yield('content')
 

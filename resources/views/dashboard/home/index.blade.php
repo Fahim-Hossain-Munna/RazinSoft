@@ -1,6 +1,11 @@
 @extends('layouts.master')
 
 @section('content')
+
+    <!-- start page title -->
+    <x-header-title title="Dashboard"></x-header-title>
+    <!-- end page title -->
+
     <div class="row">
         <div class="col-md-6 col-xl-3">
             <div class="card">
