@@ -12,9 +12,13 @@
             </div>
          @endif
             <div class="card">
-                <div class="card-body">
+                <div class="card-header d-flex justify-content-between align-items-center">
                     <h4 class="header-title">Task's Table</h4>
-
+                    <label>Search:
+                    <input wire:model='search' type="search" class="" placeholder="" aria-controls="datatable-buttons">
+                    </label>
+                </div>
+                <div class="card-body">
                     <div class="table-responsive">
                         <table class="table mb-0">
                             <thead class="table-light">

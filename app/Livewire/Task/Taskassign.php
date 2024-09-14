@@ -19,6 +19,7 @@ class Taskassign extends Component
         ]);
 
         $user = User::where('id',$this->user_id)->first();
+        $task = Task::where('id',$id)->first();
 
         $assign_task_exists = AssignTask::where('user_id',$this->user_id)
         ->where('task_id',$id)
@@ -26,6 +27,7 @@ class Taskassign extends Component
 
         if(!$assign_task_exists){
             AssignTask::create([
+                'task_title' => $task->name,
                 'task_id' => $id,
                 'user_id' => $this->user_id,
                 'assign_date' => $this->assign_time,

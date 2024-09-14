@@ -16,8 +16,8 @@ Route::prefix('taskwithrazin')->middleware(['auth', 'verified'])->group(function
     Route::get('/dashboard',[HomeController::class,'index'])->name('dashboard');
 
     // task
-    Route::resource('/task',TaskController::class);
-    Route::get('/task/assign/{id}',[TaskController::class,'assign_task'])->name('task.assign');
+    Route::resource('/task',TaskController::class)->middleware('can:isAdmin');
+    Route::get('/task/assign/{id}',[TaskController::class,'assign_task'])->name('task.assign')->middleware('can:isAdmin');
 
     // role
     Route::get('/role/assign',[RoleController::class,'index'])->name('role.assign')->middleware('can:admin');

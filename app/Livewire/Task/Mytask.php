@@ -8,6 +8,7 @@ use Livewire\Component;
 
 class Mytask extends Component
 {
+    public $search;
 
     public function updateStatus($id){
 
@@ -33,9 +34,11 @@ class Mytask extends Component
 
     public function render()
     {
+
         $tasks = AssignTask::where('user_id',Auth::user()->id)
         ->where('status','pending')
         ->get();
+
         return view('livewire.task.mytask',compact('tasks'));
     }
 }

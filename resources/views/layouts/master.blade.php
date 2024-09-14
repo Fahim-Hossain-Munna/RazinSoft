@@ -52,7 +52,7 @@
                     <li class="menu-title">Menu</li>
 
                     <li class="menu-item">
-                        <a class='menu-link waves-effect waves-light' href='index.html'>
+                        <a class='menu-link waves-effect waves-light' href='{{ route('dashboard') }}'>
                             <span class="menu-icon"><i class="bx bx-home-smile"></i></span>
                             <span class="menu-text"> Dashboards </span>
                             <span class="badge bg-primary rounded ms-auto">01</span>
@@ -61,6 +61,7 @@
 
                     <li class="menu-title">Task Management</li>
 
+                    @can('isAdmin')
                     <li class="menu-item">
                         <a href="#menuExpages" data-bs-toggle="collapse" class="menu-link waves-effect waves-light">
                             <span class="menu-icon"><i class="bx bx-file"></i></span>
@@ -82,6 +83,10 @@
                             </ul>
                         </div>
                     </li>
+
+                    @endcan
+
+
                     <li class="menu-item">
                         <a href="#mytask" data-bs-toggle="collapse" class="menu-link waves-effect waves-light">
                             <span class="menu-icon"><i class="bx bx-file"></i></span>

@@ -16,7 +16,6 @@
             <div class="card">
                 <div class="card-body">
                     <h4 class="header-title">Task's Table</h4>
-
                     <div class="table-responsive">
                         <table class="table mb-0">
                             <thead class="table-light">
@@ -50,9 +49,11 @@
                                                 <i wire:click='destroy({{ $task->id }})' class="fa-regular fa-trash-can"></i>
                                                 @endcan
                                                 @can('assigntask')
+                                                @if ($task->status == 'complete')
                                                 <a href="{{ route('task.assign',$task->id) }}">
                                                     <i class="fa-solid fa-user-pen"></i>
                                                 </a>
+                                                @endif
                                                 @endcan
                                             </div>
                                         </td>
@@ -75,6 +76,10 @@
                                     </tr>
 
                                 @empty
+
+                                <tr>
+                                    <td colspan="5" class="text-danger text-center">no task create yet!</td>
+                                </tr>
 
                                 @endforelse
                             </tbody>
