@@ -4,6 +4,7 @@ namespace App\Livewire\Task;
 
 use App\Models\AssignTask;
 use App\Models\User;
+use App\Models\Task;
 use Livewire\Component;
 
 class Taskassign extends Component
@@ -27,7 +28,7 @@ class Taskassign extends Component
 
         if(!$assign_task_exists){
             AssignTask::create([
-                'task_title' => $task->name,
+                'task_title' => $task->title,
                 'task_id' => $id,
                 'user_id' => $this->user_id,
                 'assign_date' => $this->assign_time,
