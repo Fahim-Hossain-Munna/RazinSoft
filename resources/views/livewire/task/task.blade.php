@@ -14,8 +14,13 @@
             </div>
          @endif
             <div class="card">
-                <div class="card-body">
+                <div class="card-header d-flex justify-content-between align-items-center">
                     <h4 class="header-title">Task's Table</h4>
+                    <label>Search:
+                    <input wire:model.live='search' type="search" class="form-control form-control-sm" placeholder="" aria-controls="datatable-buttons">
+                    </label>
+                </div>
+                <div class="card-body">
                     <div class="table-responsive">
                         <table class="table mb-0">
                             <thead class="table-light">
@@ -42,7 +47,7 @@
                                                 <a data-bs-toggle="collapse" href="#inventorytask{{ $task->id }}">
                                                     <i class="fa-regular fa-eye"></i>
                                                 </a>
-                                                @can('isAdmin')
+                                                @can('admin')
                                                 <a href="{{ route('task.edit',$task->id) }}">
                                                     <i class="fa-regular fa-pen-to-square"></i>
                                                 </a>
@@ -57,7 +62,8 @@
                                                 @endcan
                                             </div>
                                         </td>
-
+                                        <tr>
+                                            <td colspan="4">
                                         {{-- show inventory of single task --}}
                                         <div class="collapse" id="inventorytask{{ $task->id }}" style="">
                                             <div class="card">
@@ -73,6 +79,9 @@
                                             </div>
                                         </div>
                                         {{-- show inventory of single task --}}
+                                        </td>
+                                    </tr>
+
                                     </tr>
 
                                 @empty
@@ -162,17 +171,6 @@
 
     </div>
 
-
-    <script>
-        document.addEventListener('livewire:init', () => {
-        // Open modal when 'openModal' event is dispatched from Livewire
-        Livewire.on('openModal', () => {
-            var editTaskModal = new bootstrap.Modal(document.getElementById('editTaskModal'));
-            editTaskModal.show();
-        });
-
-        });
-    </script>
 
 </div>
 

@@ -15,7 +15,7 @@
                 <div class="card-header d-flex justify-content-between align-items-center">
                     <h4 class="header-title">Task's Table</h4>
                     <label>Search:
-                    <input wire:model='search' type="search" class="" placeholder="" aria-controls="datatable-buttons">
+                    <input wire:model.live='search' type="search" class="form-control form-control-sm" placeholder="" aria-controls="datatable-buttons">
                     </label>
                 </div>
                 <div class="card-body">
@@ -47,7 +47,8 @@
                                                 </a>
                                             </div>
                                         </td>
-
+                                        <tr>
+                                            <td colspan="4">
                                         {{-- show inventory of single task --}}
                                         <div class="collapse" id="inventorytask{{ $task->id }}" style="">
                                             <div class="card">
@@ -63,7 +64,9 @@
                                             </div>
                                         </div>
                                         {{-- show inventory of single task --}}
-                                    </tr>
+                                    </td>
+                                </tr>
+                            </tr>
 
                                 @empty
 

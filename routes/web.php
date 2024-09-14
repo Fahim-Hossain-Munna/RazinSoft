@@ -13,6 +13,7 @@ Route::get('/', function () {
 
 
 Route::prefix('taskwithrazin')->middleware(['auth', 'verified'])->group(function () {
+    // Home
     Route::get('/dashboard',[HomeController::class,'index'])->name('dashboard');
 
     // task

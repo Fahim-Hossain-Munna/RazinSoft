@@ -29,7 +29,7 @@ class AppServiceProvider extends ServiceProvider
             return $user->role === 'admin' || $user->role === 'employee' && $user->permission_assign;
         });
         Gate::define('isAdmin', function (User $user) {
-            return $user->role === 'admin' || $user->role === 'employee' && $user->permission_create && $user->permission_assign;
+            return $user->role === 'admin' || $user->role === 'employee' && $user->permission_create || $user->permission_assign;
         });
         Gate::define('admin', function (User $user) {
             return $user->role === 'admin';

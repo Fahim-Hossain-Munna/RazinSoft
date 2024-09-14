@@ -39,6 +39,11 @@ class Mytask extends Component
         ->where('status','pending')
         ->get();
 
-        return view('livewire.task.mytask',compact('tasks'));
+        $tasks = AssignTask::where('task_title',"LIKE","%$this->search%")->get();
+
+
+        return view('livewire.task.mytask',[
+            'tasks' => $tasks,
+        ]);
     }
 }

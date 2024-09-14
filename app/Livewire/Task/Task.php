@@ -11,6 +11,8 @@ class Task extends Component
     public $description;
     public $assign_date;
     public $expire_date;
+    public $search;
+
 
     // for clear all field
     public function clearForm(){
@@ -71,6 +73,7 @@ class Task extends Component
     public function render()
     {
         $tasks = ModelsTask::latest()->get();
+        $tasks = ModelsTask::where('title',"LIKE","%$this->search%")->get();
         return view('livewire.task.task',compact('tasks'));
     }
 }
