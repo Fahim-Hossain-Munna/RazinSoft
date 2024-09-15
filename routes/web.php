@@ -24,7 +24,7 @@ Route::prefix('taskwithrazin')->middleware(['auth', 'verified'])->group(function
     Route::get('/role/assign',[RoleController::class,'index'])->name('role.assign')->middleware('can:admin');
 
     // my task
-    Route::get('/my/task',[MyTaskController::class,'index'])->name('my.task.index');
+    Route::get('/my/task',[MyTaskController::class,'index'])->name('my.task.index')->middleware('can:employee');
 
 
 });

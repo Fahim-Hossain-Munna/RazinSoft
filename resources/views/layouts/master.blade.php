@@ -86,6 +86,7 @@
 
                     @endcan
 
+                    @can('employee')
 
                     <li class="menu-item">
                         <a href="#mytask" data-bs-toggle="collapse" class="menu-link waves-effect waves-light">
@@ -103,6 +104,7 @@
                             </ul>
                         </div>
                     </li>
+                    @endcan
 
                 </ul>
             </div>
@@ -146,7 +148,7 @@
 
                         <li class="dropdown">
                             <a class="nav-link dropdown-toggle nav-user me-0 waves-effect waves-light" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
-                                <img src="{{ asset('dashboard') }}/assets/images/users/avatar-4.jpg" alt="user-image" class="rounded-circle">
+                                <img src="{{ Avatar::create(Auth::user()->name)->toBase64() }}" alt="user-image" class="rounded-circle">
                                 <span class="ms-1 d-none d-md-inline-block">
                                     {{ Auth::user()->name }}. <i class="mdi mdi-chevron-down"></i>
                                 </span>

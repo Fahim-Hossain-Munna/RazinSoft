@@ -6,6 +6,7 @@ use Illuminate\Support\ServiceProvider;
 use App\Models\User;
 use App\Models\Task;
 use Illuminate\Support\Facades\Gate;
+use Illuminate\Pagination\Paginator;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -22,8 +23,14 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
+        // use pagination
+        Paginator::useBootstrapFive();
+
         Gate::define('createtask', function (User $user) {
             return $user->role === 'admin' || $user->role === 'employee' && $user->permission_create;
+        });
+        Gate::define('employee', function (User $user) {
+           return $user->role === 'employee';
         });
         Gate::define('assigntask', function (User $user) {
             return $user->role === 'admin' || $user->role === 'employee' && $user->permission_assign;
@@ -34,6 +41,7 @@ class AppServiceProvider extends ServiceProvider
         Gate::define('admin', function (User $user) {
             return $user->role === 'admin';
         });
+
 
     }
 }
