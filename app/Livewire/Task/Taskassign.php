@@ -12,6 +12,8 @@ class Taskassign extends Component
     public $task;
     public $user_id;
     public $assign_time;
+    public $search;
+
 
     public function taskassign($id){
         $this->validate([
@@ -39,13 +41,18 @@ class Taskassign extends Component
             session()->flash('task_assign_error',"Task already assign to this employee");
         }
 
+    }
 
 
+    public function undoTask($id){
+        AssignTask::find($id)->delete();
+        session()->flash('task_assign_undo',"Remove Employee From This Task!");
     }
 
     public function render()
     {
+        $task_assign = AssignTask::where('task_id',$this->task->id)->get();
         $employees = User::where('role','employee')->latest()->get();
-        return view('livewire.task.taskassign',compact('employees'));
+        return view('livewire.task.taskassign',compact('employees','task_assign'));
     }
 }

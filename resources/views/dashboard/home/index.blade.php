@@ -64,10 +64,20 @@
 
         <div class="col-lg-6">
             <div class="card">
-                <div class="card-body">
-
+                <div class="card-header d-flex justify-content-between align-items-center">
                     <h4 class="card-title">Total Employee</h4>
+                    <form action="{{ route('search.employee') }}" method="GET">
+                        @csrf
+                        <label class="d-flex gap-2 align-items-center">Search:
+                            <input name='search' type="search" class="form-control form-control-sm" placeholder="search name" aria-controls="datatable-buttons">
+                            <button type="submit" class="bg-transparent border-0">
+                                <i class="fa-solid fa-magnifying-glass"></i>
+                            </button>
+                        </label>
+                    </form>
+                </div>
 
+                <div class="card-body">
                     <div class="table-responsive">
                         <table class="table table-centered table-striped table-nowrap mb-0">
                             <thead>
@@ -82,7 +92,7 @@
                                 @forelse ($employees as $employee)
                                     <tr>
                                         <td>
-                                            {{ substr(encrypt($employee->id),0,5) }}
+                                            {{ substr(encrypt($employee->id),10,15) }}
                                         </td>
                                         <td class="table-user">
                                             <img src="{{ Avatar::create($employee->name)->toBase64() }}" alt="table-user" class="mr-2 avatar-xs rounded-circle">
@@ -118,8 +128,11 @@
 
         {{-- employee task --}}
 
+        @can('isAdmin')
+
         <div class="col-lg-6">
             <div class="card">
+
                 <div class="card-body">
                     <h4 class="card-title">Pending Task</h4>
                     <div class="table-responsive">
@@ -178,6 +191,7 @@
             </div>
             <!--end card-->
         </div>
+        @endcan
 
 
     </div>

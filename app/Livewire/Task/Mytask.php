@@ -37,10 +37,10 @@ class Mytask extends Component
 
         $tasks = AssignTask::where('user_id',Auth::user()->id)
         ->where('status','pending')
+        ->when($this->search, function($query){
+            return $query->where('task_title', 'LIKE', "%{$this->search}%");
+        })
         ->get();
-
-        $tasks = AssignTask::where('task_title',"LIKE","%$this->search%")->get();
-
 
         return view('livewire.task.mytask',[
             'tasks' => $tasks,

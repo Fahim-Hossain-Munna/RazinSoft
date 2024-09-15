@@ -15,6 +15,7 @@ Route::get('/', function () {
 Route::prefix('taskwithrazin')->middleware(['auth', 'verified'])->group(function () {
     // Home
     Route::get('/dashboard',[HomeController::class,'index'])->name('dashboard');
+    Route::get('/search/employee',[HomeController::class,'search_employee'])->name('search.employee');
 
     // task
     Route::resource('/task',TaskController::class)->middleware('can:isAdmin');
