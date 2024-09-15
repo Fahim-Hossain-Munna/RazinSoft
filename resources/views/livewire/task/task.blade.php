@@ -27,7 +27,9 @@
                                 <tr>
                                     <th>#</th>
                                     <th>Title</th>
+                                    @can('admin')
                                     <th>Status</th>
+                                    @endcan
                                     <th>Action</th>
                                 </tr>
                             </thead>
@@ -36,12 +38,15 @@
                                     <tr>
                                         <th scope="row">{{ $loop->index +1 }}</th>
                                         <td>{{ $task->title }}</td>
+                                        @can('admin')
+
                                         <td>
                                             <div class="form-check form-switch">
                                                 <input class="form-check-input" wire:model="status" wire:change="updateStatus({{ $task->id }})" type="checkbox" role="switch" id="flexSwitchCheckChecked" {{ $task->status == 'complete' ? 'checked' : '' }}>
                                                 <label class="form-check-label text-secondary" for="flexSwitchCheckChecked">{{ $task->status == 'complete' ? 'complete' : 'pending' }}</label>
                                             </div>
                                         </td>
+                                        @endcan
                                         <td>
                                             <div class="d-flex justify-content-start gap-3 align-items-center">
                                                 <a data-bs-toggle="collapse" href="#inventorytask{{ $task->id }}">

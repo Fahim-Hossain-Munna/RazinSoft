@@ -51,7 +51,7 @@ class Taskassign extends Component
 
     public function render()
     {
-        $task_assign = AssignTask::where('task_id',$this->task->id)->get();
+        $task_assign = AssignTask::where('task_id',$this->task->id)->where('status','pending')->get();
         $employees = User::where('role','employee')->latest()->get();
         return view('livewire.task.taskassign',compact('employees','task_assign'));
     }
